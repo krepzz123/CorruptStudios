@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CorruptStudios</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #000000;
+      color: #ffffff;
+      min-height: 100vh;
+      background-image: url('https://www.transparenttextures.com/patterns/black-linen.png');
+      background-size: cover;
+    }
+
+    header {
+      background-color: #111111;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #0099cc;
+    }
+
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    nav a:hover,
+    nav a.active {
+      background-color: #0099cc;
+      color: #000000;
+      transform: scale(1.1);
+    }
+
+    .content {
+      padding: 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    h2 {
+      color: #ffffff;
+      margin-bottom: 20px;
+      border-bottom: 2px solid #0099cc;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #111111;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    footer a {
+      color: #0099cc;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .credit-grid {
+      display: grid;
+      grid-template-columns: 1fr; 
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .credit-box {
+      background-color: #1f1f1f;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      color: #ffffff;
+      border: 2px solid #0099cc;
+      height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .credit-box img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+
+    .credit-box h3 {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    .credit-box p {
+      font-size: 1rem;
+      color: #ccc;
+      margin: 10px 0;
+    }
+
+    .credit-box a {
+      color: #0099cc;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .credit-box a:hover {
+      text-decoration: underline;
+    }
+
+    .credit-grid .owner {
+      grid-column: span 1; 
+      display: flex;
+      justify-content: center;
+    }
+
+    .credit-grid .devs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .credit-grid .staff {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .credit-grid .owner h3 {
+      color: red;
+    }
+
+    .credit-grid .devs h3 {
+      color: #1093ff;
+    }
+
+    .credit-grid .staff h3 {
+      color: orange;
+    }
+
+    .credit-grid .devs .cardev h3 {
+      color: yellow;
+    }
+
+    .application-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .application-box {
+      background-color: #1f1f1f;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border: 2px solid #0099cc;
+      border-radius: 10px;
+      width: calc(25% - 20px);
+      box-sizing: border-box;
+      cursor: pointer;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .application-box:hover {
+      background-color: #0099cc;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="https://i.imgur.com/BJri1BN.png" alt="Corrupt Logo" class="logo" />
+    <nav>
+      <a href="#" class="tab-link active" data-section="home">Home</a>
+      <a href="#" class="tab-link" data-section="rules">Rules</a>
+      <a href="#" class="tab-link" data-section="applications">Applications</a>
+      <a href="#" class="tab-link" data-section="credits">Credits</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <section id="home">
+      <h2>Welcome to Corrupt Public</h2>
+      <p>
+        CorruptStudios offers an immersive FiveM experience featuring a custom-built framework,
+        law enforcement integration, and dynamic city systems. Whether you’re grinding, protecting, or scheming — there’s a place for you.
+      </p>
+
+      <h2>How to Play</h2>
+      <p>
+        <span class="how-to-play-step">Step 1: Download FiveM</span> — First, make sure you have FiveM installed on your PC. You can get it from the official website at <a href="https://fivem.net" target="_blank" style="color:#0099cc;">FiveM.net</a>.
+      </p>
+      <p>
+        <span class="how-to-play-step">Step 2: Join Corrupt Public Server</span> — Once FiveM is installed, join our server by entering the server IP or using our server listing.
+      </p>
+
+      <h2>FAQ</h2>
+      <ul>
+        <li><strong>Q:</strong> Do I need to have a paid copy of Grand Theft Auto V to play?</li>
+        <li><strong>A:</strong> Yes, you need a legitimate copy of GTA V to play on FiveM.</li>
+        <li><strong>Q:</strong> Can I play on mobile?</li>
+        <li><strong>A:</strong> Unfortunately, FiveM is only available for PC at this time.</li>
+        <li><strong>Q:</strong> Is there a way to donate to support the server?</li>
+        <li><strong>A:</strong> Yes! You can donate via our website. Donators get special perks to enhance the gameplay experience.</li>
+        <li><strong>Q:</strong> How can I contact the admins?</li>
+        <li><strong>A:</strong> You can contact the staff directly on our Discord server. Link available in the footer.</li>
+      </ul>
+    </section>
+
+    <section id="rules" class="hidden">
+      <div class="rules-box">
+        <h2>Server Rules</h2>
+        <ul>
+          <li>No RDM (Random Deathmatch) or VDM (Vehicle Deathmatch)</li>
+          <li>Respect all players and staff at all times</li>
+          <li>No cheating, exploiting, or external mod menus</li>
+          <li>Serious RP is expected — remain in character</li>
+          <li>Use of microphone is required</li>
+          <li>Common sense is expected — don’t break immersion</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="applications" class="hidden">
+      <h2>Choose Your Application Type</h2>
+      <div class="application-grid">
+        <div class="application-box" onclick="openApplication('staff.html')">Staff Application</div>
+      </div>
+    </section>
+    
+    <script>
+      function openApplication(file) {
+        window.location.href = file;
+      }
+    </script>
+    
+
+    <section id="credits" class="hidden credits-section">
+      <div class="credit-grid">
+        <!-- Owner -->
+        <div class="credit-box">
+          <img src="https://media.discordapp.net/attachments/1348446989938987068/1361144092238676109/A8l92Hx.png?ex=67fdafb8&is=67fc5e38&hm=51e3f8d72132af42cb346b15bbf936b0e8c072bae3864d5e63e1c94fcdfe0926&=" alt="Founder Image">
+          <h3 style="color: red;">Founder</h3>
+          <p style="color: white;">Krepzz123</p>
+          <a href="https://github.com/krepzz123" target="_blank" class="github-link">Visit GitHub</a>
+        </div>
+      
+        <!-- Devs-->
+        <div class="credit-grid devs">
+          <div class="credit-box">
+            <img src="https://media.discordapp.net/attachments/1348446989938987068/1361144834211053778/bLvxHLn.png?ex=67fdb069&is=67fc5ee9&hm=19387afdff6f5edbc458ee58bf140aaf3c60001fbd067a6b0841708fa948b50e&=" alt="Lead Developer Image">
+            <h3 style="color: #1093ff;">Lead Developer</h3>
+            <p style="color: white;">Tom</p>
+            <a href="https://github.com/yous1ag" target="_blank" class="github-link">Visit GitHub</a>
+          </div>
+          <div class="credit-box">
+            <img src="https://cdn.discordapp.com/avatars/1302530441630322747/b2450c9fe7952c013839e82c895184fd.webp?size=1024" alt="Car Developer Image">
+            <h3 style="color: rgb(243, 228, 23);">Car Developer</h3>
+            <p style="color: white;">@16L</p>
+            <a href="https://github.com/yusd3v" target="_blank" class="github-link">Visit GitHub</a>
+          </div>
+        </div>
+      </div>
+    
+      <!--highest staff-->
+      <div class="credit-grid staff">
+        <div class="credit-box staff-box">
+          <img src="https://media.discordapp.net/attachments/1338611451803205733/1361363999043878944/Fon1TY6.webp?ex=67fe7c86&is=67fd2b06&hm=e5a3870063fd4e2890e81dca676472659680c253bb7f283468ffa37e354fb69c&=" alt="Staff Image 1" class="staff-img">
+          <h3 style="color: rgb(110, 30, 6);">Head Administrator</h3>
+          <p style="color: white;">Kxmps</p>
+        </div>
+        <div class="credit-box staff-box">
+          <img src="https://media.discordapp.net/attachments/1338611451803205733/1361363999454662777/L215IVv.png?ex=67fe7c86&is=67fd2b06&hm=c021d68012d0870f30949673684ac60c77dbdf1bba4916ad2e974283f4a14246&=&width=594&height=594" alt="Staff Image 2" class="staff-img">
+          <h3 style="color: rgb(168, 13, 65);">Senior Administrator</h3>
+          <p style="color: white;">ohio</p>
+        </div>
+        <div class="credit-box staff-box">
+          <img src="https://media.discordapp.net/attachments/1308488079316877374/1361383238580437232/8wqFDfn.png?ex=67fe8e71&is=67fd3cf1&hm=00a98b1c4db245d606de874ebaf6d99610685b1fb384a30cef82aef5ba299dcf&=" alt="Staff Image 3" class="staff-img">
+          <h3 style="color: rgb(238, 155, 0);">Administrator</h3>
+          <p style="color: white;">dylz</p>
+        </div>
+      </div>
+    </section>
+    
+    <style>
+      .credit-grid.staff {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        padding: 0;
+      }
+    
+      .staff-box {
+        text-align: center;
+        flex: 1;
+        margin: 0;
+      }
+    
+      .staff-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+    
+      .staff-box h3 {
+        font-size: 16px;
+        color: white;
+      }
+    
+      .staff-box p {
+        font-size: 14px;
+        color: white;
+      }
+    </style>
+    
+    
+    <style>
+      .credit-box {
+        background-color: #1f1f1f;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        color: #ffffff;
+        border: 2px solid #0099cc;
+        height: 250px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        overflow: hidden;
+        position: relative;
+      }
+    
+      .credit-box img {
+        width: 100%;
+        height: 150px;
+        object-fit: contain;
+        border-radius: 5px;
+      }
+    
+      .credit-box h3 {
+        margin-top: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    
+      .credit-box p {
+        font-size: 1rem;
+        color: #ccc;
+        margin: 10px 0;
+      }
+    
+      .github-link {
+        color: #0099cc;
+        text-decoration: none;
+        font-weight: bold;
+        margin-top: 10px;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    
+      .github-link:hover {
+        text-decoration: underline;
+      }
+    </style>
+    
+
+    <footer>
+      <div class="footer-content">
+        <p>CorruptStudios &copy; 2025 | 
+          <a href="privacy-policy.html">Privacy Policy</a> | 
+          <a href="terms-of-service.html">Terms of Service</a>
+        </p>
+        <p>Join us on Discord: <a href="https://discord.com" target="_blank">Click here</a></p>
+      </div>
+    </footer>
+    
+  <script>
+    const tabLinks = document.querySelectorAll('.tab-link');
+    const sections = document.querySelectorAll('section');
+
+    tabLinks.forEach(link => {
+      link.addEventListener('click', function(event) {
+        event.preventDefault();
+
+        tabLinks.forEach(tab => tab.classList.remove('active'));
+
+        this.classList.add('active');
+
+        sections.forEach(section => section.classList.add('hidden'));
+
+        const sectionId = this.getAttribute('data-section');
+        const activeSection = document.getElementById(sectionId);
+        activeSection.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>

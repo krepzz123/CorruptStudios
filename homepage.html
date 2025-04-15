@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CorruptStudios</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://media.discordapp.net/attachments/1338611451803205733/1361315620485861386/f5QKDnr.png?ex=67fe4f77&is=67fcfdf7&hm=1450339dd8fc25eadfe0a84bbc485263b3018daab07bb37a262b30e8828fd003&=&width=1604&height=902') no-repeat center center fixed; /* Direct link to the image */
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+    }
+
+    .logo {
+      position: absolute;
+      top: 12%; 
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+    }
+
+    .logo img {
+      width: 350px;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      border-radius: 10px;
+      position: absolute;
+      bottom: 25%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+      font-size: 16px;
+    }
+
+    .nav-item:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-item img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
+      filter: brightness(0) invert(1);
+    }
+
+    .nav-item span {
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="logo">
+      <img src="https://media.discordapp.net/attachments/1308488079316877374/1361312844221644860/8jS7TUI.png?ex=67fe4ce2&is=67fcfb62&hm=3c362a54130fdf7356e12429c0dacdd4b333402497031d97016b2de4ba38b6e8&=" alt="Logo" />
+    </a>
+  </div>
+
+  <div class="overlay">
+    <!--"Home"-->
+    <a href="home.html" style="text-decoration: none; color: white;">
+      <div class="nav-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home" />
+        <span>Home</span>
+      </div>
+    </a>
+
+    <!--"Store"-->
+    <a href="https://corrupt-public.tebex.io/" style="text-decoration: none; color: white;" target="_blank">
+      <div class="nav-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-bag.png" alt="Store" />
+        <span>Store</span>
+      </div>
+    </a>
+
+    <!--"Bug Report"-->
+    <a href="https://discord.gg/86PFTdEUzS" style="text-decoration: none; color: white;" target="_blank">
+      <div class="nav-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/bug.png" alt="Bug Report" />
+        <span>Bug report</span>
+      </div>
+    </a>
+
+    <!--"Discord"-->
+    <a href="https://discord.gg/corrupt5m" target="_blank" style="text-decoration: none; color: white;">
+      <div class="nav-item">
+        <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord" />
+        <span>Discord</span>
+      </div>
+    </a>
+  </div>
+
+</body>
+</html>

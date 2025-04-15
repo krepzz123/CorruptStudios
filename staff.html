@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Staff Application</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('https://media.discordapp.net/attachments/1338611451803205733/1361315620485861386/f5QKDnr.png?ex=67fef837&is=67fda6b7&hm=f40c6fb3490af24a6b35e1ecc2f70a14ff16668712c060555bc8baf17310d563&=&width=1604&height=902') no-repeat center center fixed;
+      background-size: cover;
+      font-family: Arial, sans-serif;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    form {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 0 25px rgba(0, 170, 255, 0.3);
+      text-align: center; /* Center text within the form */
+    }
+
+    h2 {
+      color: #00aaff;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+      color: #00aaff;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      background-color: #222;
+      color: white;
+      border: none;
+    }
+
+    textarea {
+      height: 80px;
+      resize: vertical;
+    }
+
+    input[type="checkbox"] {
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 20px;
+      background-color: #00aaff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #0088cc;
+    }
+
+    /* Logo styling */
+    .logo {
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 120px; /* Increase the logo size if needed */
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+
+  <form id="staffApplication">
+    <!-- Logo -->
+    <img src="https://media.discordapp.net/attachments/1308488079316877374/1361312844221644860/8jS7TUI.png?ex=67fef5a2&is=67fda422&hm=94141e33ba4b591481ef38995d75934a1d433b7f4ce214519f4c2b19362174af&=" class="logo" alt="Logo" />
+
+    <h2>Staff Application</h2>
+
+    <label>Name</label>
+    <input type="text" name="name" required />
+
+    <label>Discord ID</label>
+    <input type="text" name="discord" required />
+
+    <label>Age</label>
+    <input type="number" name="age" required />
+
+    <label>How long have you been part of Corrupt Staff?</label>
+    <input type="text" name="staffTime" required />
+
+    <label>Why do you wish to join the staff team?</label>
+    <textarea name="whyJoin" required></textarea>
+
+    <label>Why should we choose you over other applicants?</label>
+    <textarea name="whyYou" required></textarea>
+
+    <label>Name your biggest strength</label>
+    <textarea name="strength" required></textarea>
+
+    <label>Name your biggest weakness</label>
+    <textarea name="weakness" required></textarea>
+
+    <label>What do you think about the current staff team?</label>
+    <textarea name="teamOpinion" required></textarea>
+
+    <label>What could the staff team improve on?</label>
+    <textarea name="teamImprove" required></textarea>
+
+    <label>Roughly how many hours per week could you commit to staff work?</label>
+    <input type="text" name="hours" required />
+
+    <label>Are there any staff members that would recommend you?</label>
+    <input type="text" name="recommendations" />
+
+    <label>
+      <input type="checkbox" name="confirm" required />
+      I can confirm that I have read the rules and will abide by them. I also confirm I am over the age of 16.
+    </label>
+
+    <button type="submit">Send</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("staffApplication");
+    const webhookURL = 'https://discord.com/api/webhooks/1361509032946434218/EasyHuWpq494GS6JUr9jHA3DwMzXdgFxpxhbNNwaishtVYFIki4lFo-vTy5LQgdGPAQQ';
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const data = new FormData(form);
+      const fields = {
+        "Name": data.get("name"),
+        "Discord ID": data.get("discord"),
+        "Age": data.get("age"),
+        "How long have you been part of Corrupt for? ": data.get("staffTime"),
+        "Why do you wish to join the staff team?": data.get("whyJoin"),
+        "Why should we choose you over other applications?": data.get("whyYou"),
+        "Name your biggest strength? ": data.get("strength"),
+        "Name your biggest weakness?": data.get("weakness"),
+        "What do you think about the current staff team?": data.get("teamOpinion"),
+        "What could the Staff team improve on?": data.get("teamImprove"),
+        "Roughly how many hours per week could you commit to staff work?": data.get("hours"),
+        "Are there any Staff members that would recommend you?": data.get("recommendations"),
+        "Confirmed Rules": data.get("confirm") ? "Yes" : "No"
+      };
+
+      const embedFields = Object.entries(fields).map(([name, value]) => ({
+        name: name,
+        value: value || "N/A",
+        inline: false
+      }));
+
+      const payload = JSON.stringify({
+        embeds: [{
+          title: "New Staff Application",
+          color: 3447003,
+          fields: embedFields,
+          timestamp: new Date().toISOString(),
+          footer: {
+            text: "Corrupt Staff Application"
+          }
+        }]
+      });
+
+      try {
+        const response = await fetch(webhookURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: payload
+        });
+
+        if (response.ok) {
+          alert("Application sent");
+          form.reset();
+        } else {
+          alert("Failed to send application.");
+          console.error("Discord response error:", await response.text());
+        }
+      } catch (error) {
+        alert("Error sending application.");
+        console.error("Fetch error:", error);
+      }
+    });
+  </script>
+</body>
+</html>
