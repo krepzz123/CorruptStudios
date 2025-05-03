@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Designed by CodeForge</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+  <style>
+    body {
+      background: #121212;
+      color: #f1f1f1;
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(14px);
+      border-radius: 16px;
+      padding: 40px;
+      max-width: 700px;
+      box-shadow: 0 0 40px rgba(100, 100, 255, 0.1);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .glow-btn {
+      background: linear-gradient(90deg, #6c5ce7, #a29bfe);
+      color: white;
+      border-radius: 50px;
+      padding: 12px 28px;
+      font-size: 16px;
+      font-weight: 600;
+      box-shadow: 0 0 12px rgba(103, 58, 183, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: inline-block;
+      margin-top: 24px;
+    }
+
+    .glow-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(103, 58, 183, 0.6);
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="glass">
+    <h1 class="text-4xl font-extrabold text-white mb-4">Designed by CodeForge</h1>
+    <p class="text-gray-300 text-lg mb-6">
+      This website was proudly designed and developed by <strong>CodeForge</strong> — a modern web design studio specializing in stylish, performant, and user-focused digital experiences.
+    </p>
+    <p class="text-gray-400 mb-6">
+      We partnered with <strong>CorruptStudios</strong> to bring their unique vision to life with a bold, atmospheric, and responsive design that reflects their identity and brand.
+    </p>
+    <a href="index.html" class="glow-btn">Back to CorruptStudios</a>
+  </div>
+
+</body>
+</html>
