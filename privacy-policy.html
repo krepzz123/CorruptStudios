@@ -21,6 +21,23 @@
       align-items: center;
       min-height: 100vh;
       flex-direction: column;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      filter: drop-shadow(0 0 5px #00aaff);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.1);
+      filter: drop-shadow(0 0 10px #00aaff);
     }
 
     .content {
@@ -67,6 +84,10 @@
   </style>
 </head>
 <body>
+
+  <a href="home.html">
+    <img src="./assets/logo/corrupt.png" alt="CorruptStudios Logo" class="logo" />
+  </a>
 
   <div class="content">
     <h2>Privacy Policy</h2>
