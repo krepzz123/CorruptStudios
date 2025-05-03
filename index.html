@@ -8,36 +8,32 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('./assets/logo/background.png') no-repeat center center fixed; /* Direct link to the image */
+      background: url('./assets/logo/background.png') no-repeat center center fixed;
       background-size: cover;
-      background-position: center;
       background-attachment: fixed;
       color: white;
-    }
-
-    .logo {
-      position: absolute;
-      top: 12%; 
-      left: 50%;
-      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
     }
 
     .logo img {
       width: 350px;
+      max-width: 80%;
+      margin-bottom: 2rem;
     }
 
     .overlay {
       background-color: rgba(0, 0, 0, 0.5);
       padding: 1rem 2rem;
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       gap: 2rem;
       border-radius: 10px;
-      position: absolute;
-      bottom: 25%;
-      left: 50%;
-      transform: translateX(-50%);
     }
 
     .nav-item {
@@ -47,7 +43,6 @@
       text-align: center;
       cursor: pointer;
       transition: transform 0.3s;
-      font-size: 16px;
     }
 
     .nav-item:hover {
@@ -64,47 +59,46 @@
     .nav-item span {
       font-size: 16px;
     }
+
+    a {
+      text-decoration: none;
+      color: white;
+    }
   </style>
 </head>
 <body>
   <div class="logo">
-      <img src="./assets/logo/corrupt.png" alt="Logo" />
-    </a>
+    <img src="./assets/logo/corrupt.png" alt="Logo" />
   </div>
 
   <div class="overlay">
-    <!--"Home"-->
-    <a href="home.html" style="text-decoration: none; color: white;">
+    <a href="home.html">
       <div class="nav-item">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home" />
         <span>Home</span>
       </div>
     </a>
 
-    <!--"Store"-->
-    <a href="https://corrupt-public.tebex.io/" style="text-decoration: none; color: white;" target="_blank">
+    <a href="https://corrupt-public.tebex.io/" target="_blank">
       <div class="nav-item">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/shopping-bag.png" alt="Store" />
         <span>Store</span>
       </div>
     </a>
 
-    <!--"Bug Report"-->
-    <a href="https://discord.gg/86PFTdEUzS" style="text-decoration: none; color: white;" target="_blank">
+    <a href="https://discord.gg/86PFTdEUzS" target="_blank">
       <div class="nav-item">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/bug.png" alt="Bug Report" />
         <span>Bug report</span>
       </div>
     </a>
 
-    <!--"Discord"-->
-    <a href="https://discord.gg/corrupt5m" target="_blank" style="text-decoration: none; color: white;">
+    <a href="https://discord.gg/corrupt5m" target="_blank">
       <div class="nav-item">
         <img src="https://img.icons8.com/ios-filled/50/ffffff/discord-logo.png" alt="Discord" />
         <span>Discord</span>
       </div>
     </a>
   </div>
-
 </body>
 </html>
