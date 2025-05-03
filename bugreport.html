@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Staff Application</title>
+  <title>Bug Report</title>
   <style>
     * {
       box-sizing: border-box;
@@ -61,10 +61,6 @@
       resize: vertical;
     }
 
-    input[type="checkbox"] {
-      margin-top: 10px;
-    }
-
     button {
       margin-top: 20px;
       background-color: #00aaff;
@@ -91,14 +87,10 @@
 </head>
 <body>
 
-  <form id="staffApplication">
-<div class="logo-container">
-  <a href="home.html">
+  <form id="bugReportForm">
     <img src="./assets/logo/corrupt.png" class="logo" alt="Logo" />
-  </a>
-</div>
 
-    <h2>Staff Application</h2>
+    <h2>Bug Report</h2>
 
     <label>Name</label>
     <input type="text" name="name" required />
@@ -106,47 +98,32 @@
     <label>Discord ID</label>
     <input type="text" name="discord" required />
 
-    <label>Age</label>
-    <input type="number" name="age" required />
+    <label>Bug Description</label>
+    <textarea name="bugDescription" required></textarea>
 
-    <label>How long have you been part of Corrupt Staff?</label>
-    <input type="text" name="staffTime" required />
+    <label>Steps to Reproduce</label>
+    <textarea name="stepsToReproduce" required></textarea>
 
-    <label>Why do you wish to join the staff team?</label>
-    <textarea name="whyJoin" required></textarea>
+    <label>Expected Behavior</label>
+    <textarea name="expectedBehavior" required></textarea>
 
-    <label>Why should we choose you over other applicants?</label>
-    <textarea name="whyYou" required></textarea>
+    <label>Actual Behavior</label>
+    <textarea name="actualBehavior" required></textarea>
 
-    <label>Name your biggest strength</label>
-    <textarea name="strength" required></textarea>
-
-    <label>Name your biggest weakness</label>
-    <textarea name="weakness" required></textarea>
-
-    <label>What do you think about the current staff team?</label>
-    <textarea name="teamOpinion" required></textarea>
-
-    <label>What could the staff team improve on?</label>
-    <textarea name="teamImprove" required></textarea>
-
-    <label>Roughly how many hours per week could you commit to staff work?</label>
-    <input type="text" name="hours" required />
-
-    <label>Are there any staff members that would recommend you?</label>
-    <input type="text" name="recommendations" />
+    <label>Additional Information</label>
+    <textarea name="additionalInfo"></textarea>
 
     <label>
       <input type="checkbox" name="confirm" required />
-      I can confirm that I have read the rules and will abide by them. I also confirm I am over the age of 16.
+      I confirm that I have provided accurate information to the best of my knowledge.
     </label>
 
-    <button type="submit">Send</button>
+    <button type="submit">Submit Bug Report</button>
   </form>
 
   <script>
-    const form = document.getElementById("staffApplication");
-    const webhookURL = 'https://discord.com/api/webhooks/1368197061761171537/s-2S1NUQoYvfjf23Y7oY101XoKnymME0PLDp0d1dkRjfrqPSbsokioick1YCQ9N9NceS';
+    const form = document.getElementById("bugReportForm");
+    const webhookURL = 'https://discord.com/api/webhooks/1368197163846340699/412HswPizgKlmatK_Xl98LbPz6T8VseuxGXR5_5BBcKTmZSLv5UQpHpwUjb5xAneRZRF';
 
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -155,17 +132,12 @@
       const fields = {
         "Name": data.get("name"),
         "Discord ID": data.get("discord"),
-        "Age": data.get("age"),
-        "How long have you been part of Corrupt for? ": data.get("staffTime"),
-        "Why do you wish to join the staff team?": data.get("whyJoin"),
-        "Why should we choose you over other applications?": data.get("whyYou"),
-        "Name your biggest strength? ": data.get("strength"),
-        "Name your biggest weakness?": data.get("weakness"),
-        "What do you think about the current staff team?": data.get("teamOpinion"),
-        "What could the Staff team improve on?": data.get("teamImprove"),
-        "Roughly how many hours per week could you commit to staff work?": data.get("hours"),
-        "Are there any Staff members that would recommend you?": data.get("recommendations"),
-        "Confirmed Rules": data.get("confirm") ? "Yes" : "No"
+        "Bug Description": data.get("bugDescription"),
+        "Steps to Reproduce": data.get("stepsToReproduce"),
+        "Expected Behavior": data.get("expectedBehavior"),
+        "Actual Behavior": data.get("actualBehavior"),
+        "Additional Information": data.get("additionalInfo") || "N/A",
+        "Confirmed Information": data.get("confirm") ? "Yes" : "No"
       };
 
       const embedFields = Object.entries(fields).map(([name, value]) => ({
@@ -176,12 +148,12 @@
 
       const payload = JSON.stringify({
         embeds: [{
-          title: "New Staff Application",
+          title: "New Bug Report",
           color: 3447003,
           fields: embedFields,
           timestamp: new Date().toISOString(),
           footer: {
-            text: "Corrupt Staff Application"
+            text: "Corrupt Bug Report"
           }
         }]
       });
@@ -196,14 +168,14 @@
         });
 
         if (response.ok) {
-          alert("Application sent");
+          alert("Bug report submitted successfully.");
           form.reset();
         } else {
-          alert("Failed to send application.");
+          alert("Failed to submit the bug report.");
           console.error("Discord response error:", await response.text());
         }
       } catch (error) {
-        alert("Error sending application.");
+        alert("Error submitting the bug report.");
         console.error("Fetch error:", error);
       }
     });
